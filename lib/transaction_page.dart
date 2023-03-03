@@ -11,17 +11,7 @@ class PageB extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        child: const Center(
-          child: Text(
-            '画面 B',
-            style: TextStyle(
-              // 文字の大きさ
-              fontSize: 20,
-              // 文字の太さ
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
+        child: Text("入出庫履歴"),
       ),
     );
   }

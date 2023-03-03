@@ -8,16 +8,19 @@ import 'package:qlogi/itemlist_page.dart';
 import 'package:qlogi/dashboard_page.dart';
 import 'package:qlogi/transaction_page.dart';
 
+//アプリ全体
 void main() {
   const app = MaterialApp(home: MainFrame(), debugShowCheckedModeBanner: false);
   const scope = ProviderScope(child: app);
   runApp(scope);
 }
 
+//プロバイダー
 final indexProvider = StateProvider((ref) {
   return 1;
 });
 
+//アプリのメインフレーム
 class MainFrame extends ConsumerWidget {
   const MainFrame({super.key});
 
@@ -25,6 +28,7 @@ class MainFrame extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final index = ref.watch(indexProvider);
 
+    //appbar設定
     final myAppBar = AppBar(
       title: Text("Qlogi", style: GoogleFonts.goldman()),
       elevation: 0,
@@ -40,6 +44,7 @@ class MainFrame extends ConsumerWidget {
       ],
     );
 
+    //bottomnavigationbar設定
     final bottombar = Container(
       color: Colors.white,
       child: MoltenBottomNavigationBar(
@@ -52,7 +57,7 @@ class MainFrame extends ConsumerWidget {
         },
         tabs: [
           MoltenTab(
-            selectedColor: Color.fromARGB(255, 93, 243, 33),
+            selectedColor: Colors.blue,
             unselectedColor: Colors.white,
             icon: Icon(Icons.search),
           ),
@@ -70,12 +75,14 @@ class MainFrame extends ConsumerWidget {
       ),
     );
 
+    //ページ設定
     const pages = [
       PageA(),
       ItemlistPage(),
       PageB(),
     ];
 
+    //表示実行
     return Scaffold(
       appBar: myAppBar,
       bottomNavigationBar: bottombar,
