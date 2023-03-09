@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:molten_navigationbar_flutter/molten_navigationbar_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:qlogi/itemlist_page.dart';
 import 'package:qlogi/dashboard_page.dart';
+import 'package:qlogi/new_item_page.dart';
 import 'package:qlogi/transaction_page.dart';
 
 //アプリ全体
@@ -59,25 +60,34 @@ class MainFrame extends ConsumerWidget {
           MoltenTab(
             selectedColor: Colors.blue,
             unselectedColor: Colors.white,
-            icon: Icon(Icons.search),
+            icon: Icon(Icons.query_stats),
           ),
           MoltenTab(
             selectedColor: Colors.blue,
             unselectedColor: Colors.white,
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.inventory_2),
           ),
           MoltenTab(
             selectedColor: Colors.blue,
             unselectedColor: Colors.white,
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.screen_rotation_alt),
           ),
         ],
       ),
     );
 
+    //floatingactionbutton設定
+    final ActionButton = FloatingActionButton(
+      child: Icon(Icons.add),
+      onPressed: () {
+        final notifier = ref.read(indexProvider.notifier);
+        notifier.state = 0;
+      },
+    );
+
     //ページ設定
     const pages = [
-      PageA(),
+      NewAddItemPage(),
       ItemlistPage(),
       PageB(),
     ];
@@ -86,6 +96,7 @@ class MainFrame extends ConsumerWidget {
     return Scaffold(
       appBar: myAppBar,
       bottomNavigationBar: bottombar,
+      floatingActionButton: ActionButton,
       body: pages[index],
     );
   }
