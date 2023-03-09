@@ -29,7 +29,7 @@
             "program": "lib/main.dart",
             "args": [
                 "-d",
-                "chrome",
+                "Windows",
                 "--dart-define-from-file=scripts/flavors/dev.json",
             ]
         },
@@ -41,7 +41,7 @@
             "program": "lib/main.dart",
             "args": [
                 "-d",
-                "chrome",
+                "Windows",
                 "--dart-define-from-file=scripts/flavors/stg.json",
             ]
         },
@@ -53,7 +53,7 @@
             "program": "lib/main.dart",
             "args": [
                 "-d",
-                "chrome",
+                "Windows",
                 "--dart-define-from-file=scripts/flavors/prd.json",
             ]
         }
