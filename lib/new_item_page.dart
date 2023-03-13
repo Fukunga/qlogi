@@ -90,12 +90,9 @@ class NewAddItemPage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
+        height: 200,
         color: Colors.white,
-        child: Column(
-          children: [
-            carousel,
-          ],
-        ),
+        child: carousel,
       ),
     );
   }
