@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:qlogi/itemlist.dart';
+
+class DragScroller extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
+}
 
 /// 馬のカード Widget
 class HorseCard extends StatelessWidget {
@@ -39,7 +48,7 @@ class HorseCard extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         // 色
-        color: Colors.orange,
+        color: Colors.grey.shade100,
         // 角丸
         borderRadius: BorderRadius.circular(20),
         // 影
@@ -77,6 +86,7 @@ class NewAddItemPage extends StatelessWidget {
   Widget build(BuildContext context) {
     // カルーセル
     final carousel = PageView.builder(
+      scrollBehavior: DragScroller(),
       // カルーセルのコントローラー
       controller: PageController(
         // 左右のカードがどのくらい見えるかのバランスを決める
@@ -90,6 +100,7 @@ class NewAddItemPage extends StatelessWidget {
 
     return Scaffold(
       body: Container(
+        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
         height: 200,
         color: Colors.white,
         child: carousel,
