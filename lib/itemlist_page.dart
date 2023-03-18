@@ -54,10 +54,10 @@ class ItemlistPage extends StatelessWidget {
     final list = ListView(
       // モデルたちの数だけ並べる
       children: List<Widget>.generate(
-        models.length,
+        SampleItemsListModels.length,
         (index) {
           // モデル1つ
-          final model = models[index];
+          final model = SampleItemsListModels[index];
           return MySlidable(
             // 左アクションたち
             // * 右に置きたい時は left ではなく right を使う

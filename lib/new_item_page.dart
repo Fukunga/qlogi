@@ -17,7 +17,7 @@ class HorseCard extends StatelessWidget {
     required this.model,
   });
   // データが入ったモデル
-  final S_Model model;
+  final ItemsList_Model model;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class HorseCard extends StatelessWidget {
 }
 
 // モデル => ウィジェット に変換する関数
-Widget modelToWidget(S_Model model) {
+Widget modelToWidget(ItemsList_Model model) {
   // ページの部分
   return Container(
     // カードの周りに 10 ずつスペースを空ける
@@ -93,17 +93,24 @@ class NewAddItemPage extends StatelessWidget {
         viewportFraction: 0.6,
       ),
       // カードの数 = モデルの数
-      itemCount: models.length,
+      itemCount: SampleItemsListModels.length,
       // モデルをWidgetに変換する関数
-      itemBuilder: (c, i) => modelToWidget(models[i]),
+      itemBuilder: (c, i) => modelToWidget(SampleItemsListModels[i]),
     );
 
     return Scaffold(
       body: Container(
         margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
         height: 200,
+        width: 300,
         color: Colors.white,
-        child: carousel,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            carousel,
+            Text("test"),
+          ],
+        ),
       ),
     );
   }
