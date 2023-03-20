@@ -10,7 +10,6 @@ class DragScroller extends MaterialScrollBehavior {
       };
 }
 
-/// 馬のカード Widget
 class HorseCard extends StatelessWidget {
   const HorseCard({
     super.key,
@@ -21,48 +20,29 @@ class HorseCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // 画像
-    final img = SizedBox(
-      height: 100,
-      child: Image.asset(
-        '${model.ItemImage}',
-      ),
-    );
-
-    // 名前
-    final text = Text(
-      model.ItemName,
-      style: const TextStyle(fontSize: 20),
-    );
-
-    // 画像と名前を縦に並べる
-    final imgAndText = Column(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        img,
-        text,
-      ],
-    );
-
     // カード部分を作るコンテナ
     return Container(
       decoration: BoxDecoration(
-        // 色
         color: Colors.grey.shade100,
-        // 角丸
-        borderRadius: BorderRadius.circular(20),
-        // 影
+        borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
-            // 影の設定
-            color: Colors.black.withOpacity(0.2), //色
-            spreadRadius: 2, // 広がりの大きさ
-            blurRadius: 2, // ぼかしの強さ
-            offset: const Offset(0, 2), // 方向
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 2,
+            blurRadius: 2,
+            offset: const Offset(0, 2),
           ),
         ],
       ),
-      child: imgAndText,
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Container(
+          padding: EdgeInsets.all(20),
+          child: Image.asset(
+            '${model.ItemImage}',
+          ),
+        ),
+      ),
     );
   }
 }
@@ -99,18 +79,17 @@ class NewAddItemPage extends StatelessWidget {
     );
 
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-        height: 200,
-        width: 300,
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            carousel,
-            Text("test"),
-          ],
-        ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+            height: 170,
+            color: Colors.white,
+            child: carousel,
+          ),
+          Text("test"),
+        ],
       ),
     );
   }
