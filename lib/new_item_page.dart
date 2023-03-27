@@ -10,17 +10,16 @@ class DragScroller extends MaterialScrollBehavior {
       };
 }
 
-class HorseCard extends StatelessWidget {
-  const HorseCard({
+class ImageCard extends StatelessWidget {
+  const ImageCard({
     super.key,
     required this.model,
   });
-  // データが入ったモデル
+
   final ItemsList_Model model;
 
   @override
   Widget build(BuildContext context) {
-    // カード部分を作るコンテナ
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
@@ -54,7 +53,7 @@ Widget modelToWidget(ItemsList_Model model) {
     // カードの周りに 10 ずつスペースを空ける
     padding: const EdgeInsets.all(10),
     // 中身は カード
-    child: HorseCard(model: model),
+    child: ImageCard(model: model),
   );
   // カードを使う
 }
@@ -88,7 +87,99 @@ class NewAddItemPage extends StatelessWidget {
             color: Colors.white,
             child: carousel,
           ),
-          Text("test"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 150,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    margin: EdgeInsets.all(2),
+                    child: Text("test"),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 150,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    margin: EdgeInsets.all(2),
+                    child: Text("test"),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 150,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    margin: EdgeInsets.all(2),
+                    child: Text("test"),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 150,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    margin: EdgeInsets.all(2),
+                    child: Text("test"),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 150,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    margin: EdgeInsets.all(2),
+                    child: Text("test"),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 150,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    margin: EdgeInsets.all(2),
+                    child: Text("test"),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 150,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    margin: EdgeInsets.all(2),
+                    child: Text("test"),
+                  ),
+                  Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    width: 150,
+                    decoration:
+                        BoxDecoration(border: Border.all(color: Colors.black)),
+                    padding: EdgeInsets.fromLTRB(20, 5, 20, 5),
+                    margin: EdgeInsets.all(2),
+                    child: Text("test"),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ],
       ),
     );
